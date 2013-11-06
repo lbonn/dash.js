@@ -51,7 +51,9 @@ Dash.dependencies.DashHandler = function () {
         getRequestUrl = function (destination, baseURL) {
             var url;
 
-            if (destination === baseURL) {
+            if (!destination) {
+                url = baseURL;
+            } else if (destination === baseURL) {
                 url = destination;
             } else if (destination.indexOf("http://") !== -1) {
                 url = destination;
